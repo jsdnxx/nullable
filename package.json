@@ -10,7 +10,7 @@
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
   },
-  "repository": "git@github.com:jden/nullable.git",
+  "repository": "git@github.com:agilemd/nullable.git",
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
