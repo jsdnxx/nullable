@@ -3,7 +3,9 @@
   "author": "jden <jason@denizac.org>",
   "version": "0.1.0",
   "description": "plow bravely ahead!",
-  "keywords": ["monad"],
+  "keywords": [
+    "monad"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha"
@@ -13,6 +15,7 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "~1.6.0",
-    "mocha": "~1.9.0"
+    "mocha": "~1.9.0",
+    "chai-interface": "~1.1.0"
   }
 }
