@@ -12,18 +12,35 @@ describe('Nullable', function () {
 
   })
 
+  it('newable with static of', function () {
+    Nullable.of(null).should.be.instanceof(Nullable)
+  })
+
+  it('newable with instance of', function () {
+    const a = Nullable.of('a')
+    const b = a.of('b')
+    b.should.be.instanceof(Nullable)
+  })
+
   it('has interface', function () {
+    Nullable.empty().should.be.instanceof(Nullable)
+
     var x = Nullable(null)
     x.should.have.interface({
       call: Function,
       map: Function,
+      get: Function,
       toString: Function,
       valueOf: Function,
       orDefault: Function,
+      // and props
       hasValue: Boolean,
       isNull: Boolean,
       isUndefined: Boolean,
-      type: String
+      type: String,
+      // and aliases:
+      orElse: Function,
+      of: Function
     })
 
     x.should.have.ownProperty('value')
@@ -75,6 +92,33 @@ describe('Nullable', function () {
     })
   })
 
+  describe('.get', function () {
+    describe('when there is a value', () => {
+      const x = Nullable({a: 1})
+      describe('when there is a property', () => {
+        it('returns a nullable with that value', () => {
+          var a = x.get('a')
+          a.value.should.equal(1)
+        })
+      })
+      describe('when there is no property', () => {
+        it('returns a nullable of undefined', () => {
+          var b = x.get('b')
+          b.should.be.instanceof(Nullable)
+          chai.expect(b.value).to.equal(undefined)
+        })
+      })
+    })
+    describe('when there is not a value', () => {
+      const x = Nullable()
+      it('returns an empty nullable', () => {
+        var b = x.get('b')
+        b.should.be.instanceof(Nullable)
+        b.hasValue.should.equal(false)
+      })
+    })
+  })
+
   describe('.orDefault', function () {
     it('returns default argument if not hasValue', function () {
       var x = Nullable(null)
@@ -99,6 +143,35 @@ describe('Nullable', function () {
       Nullable(12).toString().should.equal('<12>?')
       Nullable({}).toString().should.equal('<[object Object]>?')
     })
+  })
+
+  describe('properties', () => {
+    const a = Nullable.of('a')
+
+    describe('empty', () => {
+      it('empty', () => {
+        Nullable.empty().should.be.instanceof(Nullable)
+        Nullable().eq(Nullable.empty()).should.equal(true)
+      })  
+    })
+
+    describe('eq', () => {
+      it('undef eq null', () => {
+        Nullable.of(undefined).eq(Nullable.of(null)).should.equal(true)
+      })
+    })
+
+    it('identity', () => {
+      const a2 = a.map(x => x)
+      a2.eq(a).should.equal(true)
+    })
+
+    it('composition', () => {
+      const a = Nullable.of('a')
+      const b = Nullable.of(a)
+      a.eq(b).should.equal(true)
+    })
+
   })
 
 })

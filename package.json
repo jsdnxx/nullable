@@ -1,21 +1,29 @@
 {
   "name": "nullable",
-  "author": "jden <jason@denizac.org>",
+  "author": "jason@denizac.org",
   "version": "0.1.0",
-  "description": "plow bravely ahead!",
+  "description": "plain implementation of Maybe (Optional, Nullable) monad",
   "keywords": [
-    "monad"
+    "monad",
+    "maybe",
+    "optional",
+    "nullable",
+    "null reference error",
+    "null check",
+    "undefined"
   ],
   "main": "index.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha"
+    "test": "mocha",
+    "test:watch": "mocha --watch",
+    "watch": "npm run test:watch"
   },
-  "repository": "git@github.com:agilemd/nullable.git",
-  "license": "MIT",
+  "repository": "git@github.com:jsdnxx/nullable.git",
+  "license": "ISC",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "chai": "~1.6.0",
-    "mocha": "~1.9.0",
-    "chai-interface": "~1.1.0"
+    "chai": "^3.5.0",
+    "chai-interface": "~1.1.0",
+    "mocha": "^3.1.0"
   }
 }
