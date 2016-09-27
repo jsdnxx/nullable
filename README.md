@@ -1,6 +1,9 @@
 # nullable
 plain implementation of Maybe (Optional, Nullable) monad
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+ [![Build Status](https://travis-ci.org/jsdnxx/nullable.svg?branch=master)](https://travis-ci.org/jsdnxx/nullable)
+
 ## example usage & motivation
 Can you spot the error?
 ```js

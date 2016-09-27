@@ -17,7 +17,6 @@ Nullable.of = function (x) {
 // (T) => Nullable<T>
 Nullable.prototype.of = Nullable.of
 
-
 Nullable.EMPTY = Object.freeze(Nullable.of(null))
 Nullable.empty = function () { return Nullable.EMPTY }
 
@@ -34,13 +33,12 @@ Nullable.prototype.get = function (propName) {
   })
 }
 
-
 // (String) => Nullable<T2>
 Nullable.prototype.call = function (methodName) {
   if (!this.hasValue) { return this }
 
   if (typeof this.value[methodName] === 'function') {
-    return new Nullable(this.value[methodName].apply(this.value, [].slice.call(arguments,1)))
+    return new Nullable(this.value[methodName].apply(this.value, [].slice.call(arguments, 1)))
   }
   return this
 }
@@ -53,13 +51,11 @@ Nullable.prototype.orDefault = function (defaultValue) {
 // (Any) => T | Any
 Nullable.prototype.orElse = Nullable.prototype.orDefault
 
-
 Nullable.prototype.eq = function (other) {
   return other instanceof Nullable &&
     other.hasValue === this.hasValue &&
     (!this.hasValue || other.value === this.value)
 }
-
 
 // () => T?
 Nullable.prototype.valueOf = function () {
@@ -70,6 +66,5 @@ Nullable.prototype.valueOf = function () {
 Nullable.prototype.toString = function () {
   return '<' + this.value + '>?'
 }
-
 
 module.exports = Nullable

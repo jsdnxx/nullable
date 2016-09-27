@@ -1,3 +1,4 @@
+/* globals describe, it */
 var chai = require('chai')
 chai.should()
 chai.use(require('chai-interface'))
@@ -6,10 +7,8 @@ describe('Nullable', function () {
   var Nullable = require('../')
 
   it('callable with or without new', function () {
-
     Nullable(null).should.be.instanceof(Nullable)
     new Nullable(null).should.be.instanceof(Nullable)
-
   })
 
   it('newable with static of', function () {
@@ -44,7 +43,6 @@ describe('Nullable', function () {
     })
 
     x.should.have.ownProperty('value')
-
   })
 
   it('sets properties', function () {
@@ -77,7 +75,6 @@ describe('Nullable', function () {
       y.call('toString').value.should.equal('123')
 
       y.call('toString', 16).value.should.equal('7b')
-
     })
   })
 
@@ -152,7 +149,7 @@ describe('Nullable', function () {
       it('empty', () => {
         Nullable.empty().should.be.instanceof(Nullable)
         Nullable().eq(Nullable.empty()).should.equal(true)
-      })  
+      })
     })
 
     describe('eq', () => {
@@ -171,7 +168,5 @@ describe('Nullable', function () {
       const b = Nullable.of(a)
       a.eq(b).should.equal(true)
     })
-
   })
-
 })

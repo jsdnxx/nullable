@@ -14,7 +14,8 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "lint": "standard",
+    "test": "npm run lint && mocha",
     "test:watch": "mocha --watch",
     "watch": "npm run test:watch"
   },
@@ -24,6 +25,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-interface": "~1.1.0",
-    "mocha": "^3.1.0"
+    "mocha": "^3.1.0",
+    "standard": "^8.2.0"
   }
 }
