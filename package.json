@@ -1,7 +1,7 @@
 {
   "name": "nullable",
   "author": "jason@denizac.org",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "plain implementation of Maybe (Optional, Nullable) monad",
   "keywords": [
     "monad",
