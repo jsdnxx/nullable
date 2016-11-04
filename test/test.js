@@ -136,9 +136,10 @@ describe('Nullable', function () {
 
   describe('.toString', function () {
     it('is custom', function () {
-      Nullable(null).toString().should.equal('<null>?')
-      Nullable(12).toString().should.equal('<12>?')
-      Nullable({}).toString().should.equal('<[object Object]>?')
+      Nullable.empty().toString().should.equal('')
+      Nullable.of(12).toString().should.equal('12')
+      Nullable.of('abc').toString().should.equal('abc')
+      Nullable.of({}).toString().should.equal('[object Object]')
     })
   })
 

@@ -19,12 +19,13 @@
     "test:watch": "mocha --watch",
     "watch": "npm run test:watch"
   },
-  "repository": "git@github.com:jsdnxx/nullable.git",
+  "repository": "jsdnxx/nullable",
   "license": "ISC",
   "readmeFilename": "README.md",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-interface": "~1.1.0",
+    "flow-bin": "^0.34.0",
     "mocha": "^3.1.0",
     "standard": "^8.2.0"
   }

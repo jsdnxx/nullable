@@ -64,7 +64,7 @@ Nullable.prototype.valueOf = function () {
 
 // () => String
 Nullable.prototype.toString = function () {
-  return '<' + this.value + '>?'
+  return this.map(String).orDefault('')
 }
 
 module.exports = Nullable
